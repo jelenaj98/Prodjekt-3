@@ -1,12 +1,12 @@
 #include "solarsystem.h"
 #include <iostream>
-
+#include "time.h"
 extern bool OPPGAVE_E;
 
 using namespace std;
 
 int main(){
-
+	std::clock_t c_start = std::clock();
 
      int IntegrationPoints = 30000; // No. of integration points
 
@@ -79,6 +79,9 @@ int main(){
      sol.baycentric();
      // inside this method, first is called method for resset Planet parameters (position, velocities, energy) to initiala values
      sol.VelocityVerlet(IntegrationPoints, 0.0);
+	std::clock_t c_end = std::clock();
 
+    double time_elapsed_ms = 1000.0 * (c_end-c_start) / CLOCKS_PER_SEC;
+    std::cout << "CPU time used: " << time_elapsed_ms /1000.0 << " s\n";
     return 0;
 }
