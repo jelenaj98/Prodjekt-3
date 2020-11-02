@@ -11,7 +11,7 @@ for m in methods:
     plt.title("Solar System - " + m)
         
     for p in planets:
-        x,y,z = np.loadtxt(p+"_Position_" + method + ".txt", usecols=(1,2,3), unpack =True)
+        x,y,z = np.loadtxt(p+"_Position_" + m + ".txt", usecols=(1,2,3), unpack =True)
         plt.plot(x,y, label = p)
     
     plt.legend()
